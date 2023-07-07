@@ -1,0 +1,119 @@
+[root@ip-172-31-12-148 local_server]# git config  --global user.name LinuxAdmin0112[root@ip-172-31-12-148 local_server]# git config  --global user.email pubgsoldier0110@gmail.com
+[root@ip-172-31-12-148 local_server]# git config  --global core.editor vim
+[root@ip-172-31-12-148 local_server]# git config --global core.com
+core.commentChar   core.commitGraph   core.compression
+[root@ip-172-31-12-148 local_server]# git config --global core.com
+core.commentChar   core.commitGraph   core.compression
+[root@ip-172-31-12-148 local_server]# git config --global core.compression 2
+[root@ip-172-31-12-148 local_server]# git config -l
+user.name=LinuxAdmin0112
+user.email=pubgsoldier0110@gmail.com
+core.editor=vim
+core.compression=2
+[root@ip-172-31-12-148 local_server]# cat ~/.gitconfig
+[user]
+        name = LinuxAdmin0112
+        email = pubgsoldier0110@gmail.com
+[core]
+        editor = vim
+        compression = 2
+[root@ip-172-31-12-148 local_server]# git config  --global diff.tool vim.diff
+[root@ip-172-31-12-148 local_server]# cat ~/.gitconfig
+[user]
+        name = LinuxAdmin0112
+        email = pubgsoldier0110@gmail.com
+[core]
+        editor = vim
+        compression = 2
+[diff]
+        tool = vim.diff
+[root@ip-172-31-12-148 local_server]# git init
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint:
+hint:   git config --global init.defaultBranch <name>
+hint:
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint:
+hint:   git branch -m <name>
+Initialized empty Git repository in /root/local_server/.git/
+[root@ip-172-31-12-148 local_server]# ll
+total 0
+[root@ip-172-31-12-148 local_server]# ls -la
+total 0
+drwxr-xr-x. 3 root root  18 Jul  7 06:32 .
+dr-xr-x---. 4 root root 173 Jul  7 06:31 ..
+drwxr-xr-x. 7 root root 119 Jul  7 06:32 .git
+[root@ip-172-31-12-148 local_server]#
+[root@ip-172-31-12-148 local_server]# ls -a
+.  ..  .git
+[root@ip-172-31-12-148 local_server]# cd /home
+[root@ip-172-31-12-148 home]# vi script
+[root@ip-172-31-12-148 home]# cat script
+#!/bin/sh
+
+# Author : Zara Ali
+# Copyright (c) Tutorialspoint.com
+# Script follows here:
+
+echo "What is your name?"
+read PERSON
+echo "Hello, $PERSON"
+[root@ip-172-31-12-148 home]# cd -
+/root/local_server
+[root@ip-172-31-12-148 local_server]# cp /home/script .
+[root@ip-172-31-12-148 local_server]# ls
+script
+[root@ip-172-31-12-148 local_server]# git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        script
+
+nothing added to commit but untracked files present (use "git add" to track)
+[root@ip-172-31-12-148 local_server]# git add script
+[root@ip-172-31-12-148 local_server]# git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   script
+
+[root@ip-172-31-12-148 local_server]# git commit -m "Master_First_commit"
+[master (root-commit) b086bbd] Master_First_commit
+ 1 file changed, 9 insertions(+)
+ create mode 100644 script
+[root@ip-172-31-12-148 local_server]# git status
+On branch master
+nothing to commit, working tree clean
+[root@ip-172-31-12-148 local_server]# git log
+commit b086bbd50e38d9fbe7b45e37097b15d78019061d (HEAD -> master)
+Author: LinuxAdmin0112 <pubgsoldier0110@gmail.com>
+Date:   Fri Jul 7 06:35:48 2023 +0000
+
+    Master_First_commit
+[root@ip-172-31-12-148 local_server]# git log --oneline
+b086bbd (HEAD -> master) Master_First_commit
+[root@ip-172-31-12-148 local_server]# git branch
+* master
+[root@ip-172-31-12-148 local_server]# git remote add origin https://github.com/LinuxAdmin0112/script_git.git
+[root@ip-172-31-12-148 local_server]# git remote -v
+origin  https://github.com/LinuxAdmin0112/script_git.git (fetch)
+origin  https://github.com/LinuxAdmin0112/script_git.git (push)
+[root@ip-172-31-12-148 local_server]# git push origin master
+Username for 'https://github.com': LinuxAdmin0112
+Password for 'https://LinuxAdmin0112@github.com':
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 353 bytes | 353.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/LinuxAdmin0112/script_git.git
+ * [new branch]      master -> master
